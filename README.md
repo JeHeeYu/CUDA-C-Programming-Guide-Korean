@@ -179,6 +179,7 @@ int main()
 <br>
 <br>
 이전 MatAdd() 예제를 확장하여 여러 블록을 처리하면 코드는 다음과 같습니다.
+
 ```
 // 커널 정의
 __global__ void MatAdd(float A[N][N], float B[N][N],
