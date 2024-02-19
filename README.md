@@ -10,11 +10,13 @@
   - [1.4 문서 구조](#14-문서-구조) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#document-structure)
 
 - ### [2. 프로그래밍 모델](#2-프로그래밍-모델-1)
-  - [2-1. 커널](#2-1-커널)
-  - [2-2. 스레드 계층구조](#2-2-스레드-계층구조)
+  - [2.1. 커널](#2-1-커널)
+  - [2.2. 스레드 계층구조](#2-2-스레드-계층구조)
 - ### [3. 프로그래밍 인터페이스](#3-프로그래밍-인터페이스-1)
-  - 
+  - 3.2.
+    - 3.2.4 공유 메모
 - ### [7. C++ 언어 확장](#7-c-언어-확장-1)
+- ### [8. 협력 그룹]()
 
 ## 1. 소개
 
@@ -31,7 +33,7 @@ GPU는 고도의 병렬 연산에 특화되어 있으므로 데이터 캐싱 및
 
   <img src="https://github.com/JeHeeYu/One-Hundred-ME/assets/87363461/6a9c135c-be14-4e2d-91e0-9caf61d55e7a">
   <br>
-  그림 1: GPU는 데이터 처리에 더 많은 트랜지스터를 사용
+  <h5 align="center">그림 1: GPU는 데이터 처리에 더 많은 트랜지스터를 사용</h5>
   
 </p>
 <br>
@@ -79,7 +81,7 @@ CUDA 병렬 프로그래밍 모델은 C와 같은 표준 프로그래밍 언어�
 
   <img src="https://github.com/JeHeeYu/CUDA-Cpp-Programming-Guide-Korean/assets/87363461/1eba8b21-ddac-4acf-9680-5405d13b5953">
   <br>
-  그림 3: 자동 확장성
+  <h5 align="center">그림 3: 자동 확장성</h5>
   
 </p>
 <br>
@@ -168,7 +170,7 @@ int main()
 
   <img src="https://github.com/JeHeeYu/CUDA-Cpp-Programming-Guide-Korean/assets/87363461/424107d0-d9fe-47c6-91a6-e337231cc0ae">
   <br>
-  그림 4: 스레드 블록 그리드
+  <h5 align="center">그림 4: 스레드 블록 그리드</h5>
   
 </p>
 <br>
@@ -212,9 +214,11 @@ int main()
   
 ## 3. 프로그래밍 인터페이스
 
-### 3.2.4
+### 3.2.4 공유 메모리
 
 <br>
 <br>
 
 ## 7. C++ 언어 확장
+
+## 8. 협력 그룹
