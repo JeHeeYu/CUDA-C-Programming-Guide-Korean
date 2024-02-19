@@ -218,9 +218,20 @@ int main()
 <br>
 <br>
 ## 2.2.1. 스레드 블록 클러스터
-NVIDIA Compute Capability 9.0이 도입되면서 CUDA 프로그래밍 모델에는 스레드 블록으로 구성된 스레드 블록 클러스터라는 선택적 계층 구조가 도입되었습니다. 스레드 블록의 스레드가 스트리밍 멀티프로세서에서 공동 스케줄링되는 방식과 유사하게 클러스터의 스레드 블록도 GPU의 GPC(GPU 처리 클러스터)에서 공동 스케줄링이 보장됩니다.
+NVIDIA [Compute Capability 9.0](#168-compute-capability-90)이 도입되면서 CUDA 프로그래밍 모델에는 스레드 블록으로 구성된 스레드 블록 클러스터라는 선택적 계층 구조가 도입되었습니다. 스레드 블록의 스레드가 스트리밍 멀티프로세서에서 공동 스케줄링되는 방식과 유사하게 클러스터의 스레드 블록도 GPU의 GPC(GPU 처리 클러스터)에서 공동 스케줄링이 보장됩니다. 
 <br>
 <br>
+클러스터도 스레드 블록과 마찬가지로 그림 5와 같이 1차원, 2차원 또는 3차원으로 구성됩니다.
+<p align="center">
+
+  <img src="https://github.com/JeHeeYu/CUDA-Cpp-Programming-Guide-Korean/assets/87363461/0af87e92-f609-4037-904d-93ec4b0645c3">
+  <br>
+  <h5 align="center">그림 5: 스레드 블록 클러스터의 그리드</h5>
+  
+</p>
+<br>
+<br>
+
 
 ## 3. 프로그래밍 인터페이스
 
