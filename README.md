@@ -11,7 +11,7 @@
 - [1.4 문서 구조]() [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#document-structure)
 
 [여기](#1-개요)
-# 1. 개요
+## 1. 개요
 
 ## 1.1 GPU 사용의 이점
 
