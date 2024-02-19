@@ -9,9 +9,9 @@
   - [1.3 확장 가능한 프로그래밍 모델](#13-확장-가능한-프로그래밍-모델) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#a-scalable-programming-model)
   - [1.4 문서 구조](#14-문서-구조) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#document-structure)
 
-- ### [2. 프로그래밍 모델](#2-프로그래밍-모델)
-  - [2-1. 커널](#21-커널)
-  - [2-2. 스레드 계층구조](#22-스레드-계층구조)
+- ### [2. 프로그래밍 모델](#2-프로그래밍-모델-1)
+  - [2-1. 커널](#2-1-커널)
+  - [2-2. 스레드 계층구조](#2-2-스레드-계층구조)
 - ### [3. 프로그래밍 인터페이스](#3-프로그래밍-인터페이스스)
 - ### [7. C++ 언어 확장]
 
