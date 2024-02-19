@@ -4,9 +4,9 @@
 
 ## [목차](https://docs.nvidia.com/cuda/cuda-c-programming-guide/contents.html#contents)
 - [1.1 GPU  사용의  이점](#11-gpu-사용의-이점) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#the-benefits-of-using-gpus)
-- [1.2 범용 병렬 컴퓨팅 플랫폼 및 프로그래밍 모델]() [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#cuda-a-general-purpose-parallel-computing-platform-and-programming-model)
-- [1.3 확장 가능한 프로그래밍 모델]() [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#a-scalable-programming-model)
-- [1.4 문서 구조]() [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#document-structure)
+- [1.2 범용 병렬 컴퓨팅 플랫폼 및 프로그래밍 모델](#12-범용-병렬-컴퓨팅-플랫폼-및-프로그래밍-모델) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#cuda-a-general-purpose-parallel-computing-platform-and-programming-model)
+- [1.3 확장 가능한 프로그래밍 모델](#13-확장-가능한-프로그래밍-모델) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#a-scalable-programming-model)
+- [1.4 문서 구조](#14-문서-구조) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#document-structure)
 
 
 ## [1. 소개](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#introduction)
@@ -68,4 +68,16 @@ CUDA 병렬 프로그래밍 모델은 C와 같은 표준 프로그래밍 언어�
 이러한 분해는 각 하위 문제를 해결할 때 스레드가 협력할 수 있도록 함으로써 언어 표현력을 보존하는 동시에 자동 확장성을 가능하게 합니다. 실제로, 각각의 스레드 블록은 GPU 내의 사용 가능한 멀티프로세서에 임의의 순서로, 동시에 또는 순차적으로 스케줄링될 수 있으므로 컴파일된 CUDA 프로그램은 그림 3과 같이 임의의 수의 멀티프로세서에서 실행될 수 있으며, 런타임 시스템만이 물리적 멀티프로세서 수를 알면 됩니다.
 <br>
 <br>
-이 확장 가능한 프로그래밍 모델을 통해 GPU 아키텍처는 멀티프로세서 및 메모리 파티션 수를 확장함으로써 광범위한 시장 범위에 적용할 수 있습니다:
+이 확장 가능한 프로그래밍 모델을 통해 GPU 아키텍처는 멀티프로세서 및 메모리 파티션 수를 확장함으로써 광범위한 시장 범위에 적용할 수 있습니다: 고성능 매니아 GeForce GPU와 전문가용 Quadro 및 Tesla 컴퓨팅 제품부터 다양한 저가의 주류 GeForce GPU에 이르기까지(모든 [CUDA 지원 GPU](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#cuda-enabled-gpus) 목록은 CUDA 지원 GPU 참조)
+<p align="center">
+
+  <img src="https://github.com/JeHeeYu/CUDA-Cpp-Programming-Guide-Korean/assets/87363461/1eba8b21-ddac-4acf-9680-5405d13b5953">
+  <br>
+  그림 3: 자동 확장성
+  
+</p>
+<br>
+<br>
+
+## 1.4 문서 구조
+이 문서는 다음 섹션으로 구성되어 있습니다:
