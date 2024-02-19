@@ -8,7 +8,9 @@
   - [1.2 범용 병렬 컴퓨팅 플랫폼 및 프로그래밍 모델](#12-범용-병렬-컴퓨팅-플랫폼-및-프로그래밍-모델) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#cuda-a-general-purpose-parallel-computing-platform-and-programming-model)
   - [1.3 확장 가능한 프로그래밍 모델](#13-확장-가능한-프로그래밍-모델) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#a-scalable-programming-model)
   - [1.4 문서 구조](#14-문서-구조) [[원본]](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#document-structure)
-
+- ### [2. 프로그래밍 모델](#2-프로그래밍-모델)
+  - [2-1. 커널](#21-커널)
+- ### [3. 프로그래밍 인터페이스](#3-프로그래밍-인터페이스스)
 
 ## [1. 소개](https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#introduction)
 
@@ -82,3 +84,22 @@ CUDA 병렬 프로그래밍 모델은 C와 같은 표준 프로그래밍 언어�
 
 ## 1.4 문서 구조
 이 문서는 다음 섹션으로 구성되어 있습니다:
+
+<br>
+<br>
+
+## 2. 프로그래밍 모델
+이 장에서는 C++에서 CUDA 프로그래밍 모델이 어떻게 노출되는지 간략하게 설명하여 CUDA 프로그래밍 모델의 기본 개념을 소개합니다.
+<br>
+CUDA C++에 대한 자세한 설명은 [프로그래밍 인터페이스](#3-프로그래밍-인터페이스)에 나와 있습니다.
+<br>
+이 장과 다음에 사용된 벡터 추가 예제의 전체 코드는 [vectorAdd CUDA](https://docs.nvidia.com/cuda/cuda-samples/index.html#vector-addition) 샘플에서 찾을 수 있습니다.
+<br>
+<br>
+
+### 2-1. 커널
+
+
+
+
+## 3. 프로그래밍 인터페이스
