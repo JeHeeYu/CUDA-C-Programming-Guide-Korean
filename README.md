@@ -765,23 +765,23 @@ CUDA 스레드는 [그림 6](#그림-6-메모리-계층구조)과 같이 실행 
 
 ## 7.9.1. Surface 객체 API
 
-#### 7.9.1.1. surf1Dread()
+### 7.9.1.1. surf1Dread()
 
-#### 7.9.1.2. surf1Dwrite
-#### 7.9.1.3. surf2Dread()
-#### 7.9.1.4. surf2Dwrite()
-#### 7.9.1.5. surf3Dread()
-#### 7.9.1.6. surf3Dwrite()
-#### 7.9.1.7. surf1DLayeredread()
-#### 7.9.1.8. surf1DLayeredwrite()
+### 7.9.1.2. surf1Dwrite
+### 7.9.1.3. surf2Dread()
+### 7.9.1.4. surf2Dwrite()
+### 7.9.1.5. surf3Dread()
+### 7.9.1.6. surf3Dwrite()
+### 7.9.1.7. surf1DLayeredread()
+### 7.9.1.8. surf1DLayeredwrite()
 
-#### 7.9.1.9. surf2DLayeredread()
-#### 7.9.1.10. surf2DLayeredwrite()
+### 7.9.1.9. surf2DLayeredread()
+### 7.9.1.10. surf2DLayeredwrite()
 
-#### 7.9.1.11. surfCubemapread()
-#### 7.9.1.12. surfCubemapwrite()
-#### 7.9.1.13. surfCubemapLayeredread()
-#### 7.9.1.14. surfCubemapLayeredwrite()
+### 7.9.1.11. surfCubemapread()
+### 7.9.1.12. surfCubemapwrite()
+### 7.9.1.13. surfCubemapLayeredread()
+### 7.9.1.14. surfCubemapLayeredwrite()
 
 ## 7.10. 읽기 전용 데이터 캐시 로드 함
 
@@ -795,32 +795,133 @@ CUDA 스레드는 [그림 6](#그림-6-메모리-계층구조)과 같이 실행 
 
 ## 7.14.1. 산술 함수
 
-#### 7.14.1.1. atomicAdd()
+### 7.14.1.1. atomicAdd()
 
-#### 7.14.1.2. atomicSub()
+### 7.14.1.2. atomicSub()
 
-#### 7.14.1.3. atomicExch()
+### 7.14.1.3. atomicExch()
 
-#### 7.14.1.4. atomicMin()
+### 7.14.1.4. atomicMin()
 
-#### 7.14.1.5. atomicMax()
+### 7.14.1.5. atomicMax()
 
-#### 7.14.1.6. atomicInc()
+### 7.14.1.6. atomicInc()
 
-#### 7.14.1.7. atomicDec()
+### 7.14.1.7. atomicDec()
 
-#### 7.14.1.8. atomicCAS()
+### 7.14.1.8. atomicCAS()
 
 ### 7.14.2. Bitwise 함수
 
-#### 7.14.2.1. atomicAnd()
+### 7.14.2.1. atomicAnd()
 
-#### 7.14.2.2. atomicOr()
+### 7.14.2.2. atomicOr()
 
-#### 7.14.2.3. atomicXor()
+### 7.14.2.3. atomicXor()
 
+## 7.15. 주소 공간 조건부 함수
 
+### 7.15.1. __isGlobal()
 
+### 7.15.2. __isShared()
+
+### 7.15.3. __isConstant()
+
+### 7.15.4. __isGridConstant()
+
+### 7.15.5. __isLocal()
+
+## 7.16. 주소 공간 변환 함수
+
+### 7.16.1. __cvta_generic_to_global()
+
+### 7.16.2. __cvta_generic_to_shared()
+
+### 7.16.3. __cvta_generic_to_constant()
+
+### 7.16.4. __cvta_generic_to_local()
+
+### 7.16.5. __cvta_global_to_generic()
+
+### 7.16.6. __cvta_shared_to_generic()
+
+### 7.16.7. __cvta_constant_to_generic()
+
+### 7.16.8. __cvta_local_to_generic()
+
+## 7.17. Alloca 함수
+
+## 7.17.1. 개
+
+## 7.17.2. 설명
+
+## 7.17.3. 예제
+
+## 7.18. 컴파일러 최적화 힌트 함수
+
+### 7.18.1. __builtin_assume_aligned()
+
+### 7.18.2. __builtin_assume()
+
+### 7.18.3. __assume()
+
+### 7.18.4. __builtin_expect()
+
+### 7.18.5. __builtin_unreachable()
+
+### 7.18.6. 제한
+
+## 7.19. Warp Vote 함수
+
+## 7.20. Warp Match 함수
+
+## 7.20.1. 개요
+
+## 7.20.2. 설명
+
+## 7.21. Warp Reduce 함수
+
+## 7.21.1. 개요
+
+## 7.21.2. 설명
+
+## 7.22. Warp Shuffle 함수
+
+## 7.22.1. 개요
+
+## 7.22.1. 설명
+
+## 7.22.3. 예제
+
+### 7.22.3.1. Warp 전체에 걸쳐 단일 값 브로드캐스팅
+
+### 7.22.3.2. 8개 스레드의 하위 파티션 전체에 대한 포괄적인 플러스 스캔
+
+### 7.22.3.3. Warp에 따른 감소
+
+## 7.23. Nanosleep 함수
+
+## 7.23.1. 개요
+
+## 7.23.2. 설명
+
+## 7.23.3. 예제
+
+## 7.24. Warp Matrix 함수
+
+## 7.24.1. 설명
+
+## 7.24.2. 대체 부동 소수점
+
+## 7.24.3. 배정밀도
+
+## 7.24.4. 하위 바이트 작업
+
+## 7.24.5. 제한
+
+## 7.24.6. 요소 유형 및 매트릭스 크기
+
+## 7.24.7. 예제
 
 ## 8. 협력 그룹
 
