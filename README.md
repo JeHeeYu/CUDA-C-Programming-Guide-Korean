@@ -388,6 +388,14 @@ CUDA 스레드는 [그림 6](#그림-6-메모리-계층구조)과 같이 실행 
 
 ## 2.4 이기종 프로그래밍
 
+<p align="center">
+  <img src="https://github.com/JeHeeYu/CUDA-Cpp-Programming-Guide-Korean/assets/87363461/b216c55c-d09e-48dc-955d-153f966a64c3">
+  <br>
+  <h5 align="center">그림 7: 이기종 프로그래밍</h5>
+  
+</p>
+<br>
+<br>
 
 
 ## 3. 프로그래밍 인터페이스
