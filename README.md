@@ -221,7 +221,7 @@ int main()
 NVIDIA [Compute Capability 9.0](#168-compute-capability-90)이 도입되면서 CUDA 프로그래밍 모델에는 스레드 블록으로 구성된 스레드 블록 클러스터라는 선택적 계층 구조가 도입되었습니다. 스레드 블록의 스레드가 스트리밍 멀티프로세서에서 공동 스케줄링되는 방식과 유사하게 클러스터의 스레드 블록도 GPU의 GPC(GPU 처리 클러스터)에서 공동 스케줄링이 보장됩니다. 
 <br>
 <br>
-클러스터도 스레드 블록과 마찬가지로 그림 5와 같이 1차원, 2차원 또는 3차원으로 구성됩니다.
+클러스터도 스레드 블록과 마찬가지로 [그림 5](#그림-5-스레드-블록-클러스터의-그리드)와 같이 1차원, 2차원 또는 3차원으로 구성됩니다. 클러스터 내의 스레드 블록 수는 사용자가 정의할 수 있으며, CUDA에서 최대 8개의 스레드 블록을 휴대용 클러스터를 지원합니다. GPU 하드웨어 또는 MIG 구성이 8 멀티프로세서를 지원할 수 없을 만큼 작은 경우, 최대 클러스터 크기는 해당 하드웨어나 구성에 맞게 적절히 줄어듭니다. 이러한 작은 구성 및 8을 초과하는 스레드 블록 클러스터 크기를 지원하는 큰 구성의 식별은 아키텍처에 따라 다르며 cudaOccupancyMaxPotentialClusterSize API를 사용하여 조회할 수 있습니다.
 <p align="center">
 
   <img src="https://github.com/JeHeeYu/CUDA-Cpp-Programming-Guide-Korean/assets/87363461/0af87e92-f609-4037-904d-93ec4b0645c3">
@@ -232,6 +232,70 @@ NVIDIA [Compute Capability 9.0](#168-compute-capability-90)이 도입되면서 C
 <br>
 <br>
 
+> 클러스터 지원을 사용하여 시작된 커널에서 gridDim 변수는 호환성을 위해 여전히 스레드 블록 수를 기준으로 크기를 나타냅니다. 클러스터 그룹 API를 사용하여 클러스터 내 블록의 순위를 확인할 수 있습니다.
+
+<br>
+스레드 블록 클러스터는 컴파일러 시간 커널 속성을 사용하거나 __cluster_dims_(X,Y,Z)를 사용 또는 CUDA 커널 시작 API cudaLaunchKernelEx를 사용하여 커널에서 사용할 수 있습니다. 아래 예제는 컴파일러 시간 커널 속성을 사용하여 클러스터를 시작하는 방법을 보여줍니다. 커널 속성을 사용하는 클러스터 크기는 컴파일 시 고정되며, 이후 <<<, >>>을 사용하여 커널을 시작할 수 있습니다. 커널이 컴파일 시간 클러스터 크기를 사용하는 경우 커널을 시작할 때 클러스터 크기를 수정할 수 없습니다.
+
+```
+// 커널 정의
+// 컴파일 시간에 클러스터 크기는 X 차원에서 2이고 Y 및 Z 차원에서 1이 
+__global__ void __cluster_dims__(2, 1, 1) cluster_kernel(float *input, float* output)
+{
+
+}
+
+int main()
+{
+    float *input, *output;
+    // 컴파일 시간에 설정된 클러스터 크기를 가진 커널 함수 호출
+    dim3 threadsPerBlock(16, 16);
+    dim3 numBlocks(N / threadsPerBlock.x, N / threadsPerBlock.y);
+
+    // 그리드 차원은 클러스터 시작의 영향을 받지 않으며
+    // 블록 수를 사용하여 열거됩니다.
+    // 그리드 차원은 클러스터 크기의 배수여야 합니다.
+    cluster_kernel<<<numBlocks, threadsPerBlock>>>(input, output);
+}
+```
+
+스레드 블록 클러스터 크기는 런타임 시 설정할 수도 있으며 CUDA 커널 시작 API cudaLaunchKernelEx를 사용하여 커널을 시작할 수 있습니다. 아래 코드 예제는 확장 가능한 API를 사용하여 클러스터 커널을 시작하는 방법을 보여줍니다.
+
+```
+// 커널 정
+// 커널에 컴파일 시간 속성이 부되지 않았습니다.
+__global__ void cluster_kernel(float *input, float* output)
+{
+
+}
+
+int main()
+{
+    float *input, *output;
+    dim3 threadsPerBlock(16, 16);
+    dim3 numBlocks(N / threadsPerBlock.x, N / threadsPerBlock.y);
+
+    // 런타임 클러스터 크기의 커널 호출
+    {
+        cudaLaunchConfig_t config = {0};
+        // 그리드 차원은 클러스터 시작의 영향을 받지 않으며
+        // 블록 수를 사용하여 열거됩니다.
+        // 그리드 차원은 클러스터 크기의 배수여야 합니다.
+        config.gridDim = numBlocks;
+        config.blockDim = threadsPerBlock;
+
+        cudaLaunchAttribute attribute[1];
+        attribute[0].id = cudaLaunchAttributeClusterDimension;
+        attribute[0].val.clusterDim.x = 2; // X 차원의 클러스터 크기
+        attribute[0].val.clusterDim.y = 1;
+        attribute[0].val.clusterDim.z = 1;
+        config.attrs = attribute;
+        config.numAttrs = 1;
+
+        cudaLaunchKernelEx(&config, cluster_kernel, input, output);
+    }
+}
+```
 
 ## 3. 프로그래밍 인터페이스
 
@@ -244,5 +308,6 @@ NVIDIA [Compute Capability 9.0](#168-compute-capability-90)이 도입되면서 C
 
 ## 8. 협력 그룹
 
+### 8.4.1.2 클러스터 그룹
 
 ## 16.8 Compute Capability 9.0
